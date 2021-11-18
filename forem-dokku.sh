@@ -59,7 +59,7 @@ function funMainmenu()
     CHOICE=$(
     whiptail --notags --title "Choose your Setup" --menu "Press Enter to confirm your choice" 10 60 2 \
         "funSetup" " Create a New App "   \
-        "funUpdatemenu" " Update Existing App " 3>&2 2>&1 1>&3	
+        "funUpdatemenu" " Update Existing App " 3>&2 2>&1 1>&3  
     )
     exitstatus=$?
     if [ $exitstatus = 0 ]; then
@@ -146,7 +146,7 @@ function funUpdateapp()
         "3)" "Change Your Domain Name" \
         "4)" "Add a New Plugin" \
         "5)" "Add a New Buildpack" \
-        "9)" "End script"  3>&2 2>&1 1>&3	
+        "9)" "End script"  3>&2 2>&1 1>&3   
     )
 
     result=$(whoami)
@@ -160,7 +160,7 @@ function funUpdateapp()
         "2)")
             if [[ "$APP" == nforem ]];
             then
-                dokku git:sync --build nforem https://github.com/forem/forem.git
+                dokku git:sync --build nforem https://github.com/duyasia/forem.git
                 wait
                 result="Let me know, if you find any errors or need updates to the script"
             else
@@ -200,7 +200,7 @@ function funSetup()
     CHOICE=$(
     whiptail --notags --title "Choose your Setup" --menu "Press Enter to confirm your choice" 10 60 2 \
         "funSBS" " Step by Step Setup "   \
-        "funAdv" " Advanced Setup " 3>&2 2>&1 1>&3	
+        "funAdv" " Advanced Setup " 3>&2 2>&1 1>&3  
     )
     exitstatus=$?
     if [ $exitstatus = 0 ]; then
@@ -453,7 +453,7 @@ function funForem()
     wait
     dokku git:set nforem deploy-branch main
     wait
-    dokku git:sync --build nforem https://github.com/forem/forem.git
+    dokku git:sync --build nforem https://github.com/duyasia/forem.git
     wait 
     echo "${GREEN}There you go :), Leave a like if you successfully configured your Forem${END}" 
 }
