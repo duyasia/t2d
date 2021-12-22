@@ -59,7 +59,7 @@ function funMainmenu()
     CHOICE=$(
     whiptail --notags --title "Choose your Setup" --menu "Press Enter to confirm your choice" 10 60 2 \
         "funSetup" " Create a New App "   \
-        "funUpdatemenu" " Update Existing App " 3>&2 2>&1 1>&3	
+        "funUpdatemenu" " Update Existing App " 3>&2 2>&1 1>&3  
     )
     exitstatus=$?
     if [ $exitstatus = 0 ]; then
@@ -146,7 +146,7 @@ function funUpdateapp()
         "3)" "Change Your Domain Name" \
         "4)" "Add a New Plugin" \
         "5)" "Add a New Buildpack" \
-        "9)" "End script"  3>&2 2>&1 1>&3	
+        "9)" "End script"  3>&2 2>&1 1>&3   
     )
 
     result=$(whoami)
@@ -200,7 +200,7 @@ function funSetup()
     CHOICE=$(
     whiptail --notags --title "Choose your Setup" --menu "Press Enter to confirm your choice" 10 60 2 \
         "funSBS" " Step by Step Setup "   \
-        "funAdv" " Advanced Setup " 3>&2 2>&1 1>&3	
+        "funAdv" " Advanced Setup " 3>&2 2>&1 1>&3  
     )
     exitstatus=$?
     if [ $exitstatus = 0 ]; then
@@ -572,9 +572,9 @@ function funCheck()
         whiptail --title "Unable to Detect Dokku" --msgbox "If you want to insatll your app using t2d, it is madatory to install Dokku. So, I would like to install Dokku on behalf of you." 10 60
         wait
         echo "${YELLOW}Downloading Dokku from its Official Repository${END}"
-        wget https://raw.githubusercontent.com/dokku/dokku/v0.24.10/bootstrap.sh
+        wget https://raw.githubusercontent.com/dokku/dokku/v0.26.6/bootstrap.sh
         wait
-        sudo DOKKU_TAG=v0.24.10 bash bootstrap.sh &
+        sudo DOKKU_TAG=v0.26.6 bash bootstrap.sh &
         process_id=$!
         wait $process_id
         echo "Exit status: $?"
