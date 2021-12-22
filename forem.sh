@@ -160,7 +160,7 @@ function funUpdateapp()
         "2)")
             if [[ "$APP" == nforem ]];
             then
-                dokku git:sync --build nforem https://github.com/forem/forem.git
+                dokku git:sync --build nforem https://github.com/duyasia/forem.git
                 wait
                 result="Let me know, if you find any errors or need updates to the script"
             else
@@ -453,7 +453,7 @@ function funForem()
     wait
     dokku git:set nforem deploy-branch main
     wait
-    dokku git:sync --build nforem https://github.com/forem/forem.git
+    dokku git:sync --build nforem https://github.com/duyasia/forem.git
     wait 
     echo "${GREEN}There you go :), Leave a like if you successfully configured your Forem${END}" 
 }
@@ -542,12 +542,12 @@ function funCheck()
     if which dokku >/dev/null; then
         echo "${GREEN}Dokku Exists${END}"
         DOKKU_VERSION="$(dokku -v | awk '{print $3}')"
-        if [[ "$DOKKU_VERSION" == "0.24.10" ]];
+        if [[ "$DOKKU_VERSION" == "0.26.6" ]];
         then
-            echo "${YELLOW}Dokku Version: ${GREEN}0.24.10${END} => Skipping Dokku Update promt"
+            echo "${YELLOW}Dokku Version: ${GREEN}0.26.6${END} => Skipping Dokku Update promt"
         else
             # Promt for update
-            if (whiptail --title "Updating Dokku to Latest Version" --yes-button "Update" --no-button "Skip"  --yesno "Latest Dokku Version: 0.24.10\nInstalled Dokku Version: $DOKKU_VERSION" 10 60) then
+            if (whiptail --title "Updating Dokku to Latest Version" --yes-button "Update" --no-button "Skip"  --yesno "Latest Dokku Version: 0.26.6\nInstalled Dokku Version: $DOKKU_VERSION" 10 60) then
                 echo "${YELLOW}You chose Update.${END}"
                 # Update Dokku
                 echo "${YELLOW}Upgrading Dokku${END}"
