@@ -59,7 +59,7 @@ function funMainmenu()
     CHOICE=$(
     whiptail --notags --title "Choose your Setup" --menu "Press Enter to confirm your choice" 10 60 2 \
         "funSetup" " Create a New App "   \
-        "funUpdatemenu" " Update Existing App " 3>&2 2>&1 1>&3  
+        "funUpdatemenu" " Update Existing App " 3>&2 2>&1 1>&3	
     )
     exitstatus=$?
     if [ $exitstatus = 0 ]; then
@@ -146,7 +146,7 @@ function funUpdateapp()
         "3)" "Change Your Domain Name" \
         "4)" "Add a New Plugin" \
         "5)" "Add a New Buildpack" \
-        "9)" "End script"  3>&2 2>&1 1>&3   
+        "9)" "End script"  3>&2 2>&1 1>&3	
     )
 
     result=$(whoami)
@@ -200,7 +200,7 @@ function funSetup()
     CHOICE=$(
     whiptail --notags --title "Choose your Setup" --menu "Press Enter to confirm your choice" 10 60 2 \
         "funSBS" " Step by Step Setup "   \
-        "funAdv" " Advanced Setup " 3>&2 2>&1 1>&3  
+        "funAdv" " Advanced Setup " 3>&2 2>&1 1>&3	
     )
     exitstatus=$?
     if [ $exitstatus = 0 ]; then
